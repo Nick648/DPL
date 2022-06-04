@@ -71,6 +71,10 @@ class OperationNode(Node):
             result = left * right
         elif sign == "/":
             result = int(left / right)
+        elif sign == "%":
+            result = left % right
+        elif sign == "//":
+            result = left // right
 
         exp.insert(coord - 1, str(result))
         return exp
@@ -184,6 +188,21 @@ class PrintNode(Node):
 
     def getTypeValue(self):
         return self.type_value
+
+
+class InputNode(Node):
+
+    def __init__(self, name_variable, comment):
+        type_node = "Input"
+        super().__init__(type_node)
+        self.name_variable = name_variable
+        self.comment = comment
+
+    def getNameVariable(self):
+        return self.name_variable
+
+    def getComment(self):
+        return self.comment
 
 
 class LinkedListNode(Node):
