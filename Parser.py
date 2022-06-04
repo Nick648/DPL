@@ -2,7 +2,7 @@ import Errors
 from Nodes import *
 
 
-def check_brackets(line):  # Static check brackets
+def check_brackets(line):  # Static function - check brackets
     if len(line) < 3 and line[-1].getTypeToken() != "COMMENT":
         k_line = line[-1].getNumberLine()
         Errors.FalseKod(k_line)
@@ -53,7 +53,7 @@ class Parser:
             return True
         return False
 
-    def parse(self):
+    def parse(self):  # Main parse
         for ii in range(len(self.kod)):  # Lines of code
             line = self.kod[ii]
             check_brackets(line)

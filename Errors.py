@@ -1,4 +1,4 @@
-def error_message(message):
+def error_message(message):  # Main function
     message = "    SyntaxError: invalid syntax\n     " + message
     print(f"\033[31m {message}")
     exit(1)

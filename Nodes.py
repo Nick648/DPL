@@ -1,7 +1,7 @@
 import Errors
 
 
-class Node:
+class Node:  # Base(Parent) class
 
     def __init__(self, type_node):
         self.type_node = type_node
@@ -105,7 +105,7 @@ class OperationNode(Node):
                 break
         return exp[0]
 
-    def count(self, line):
+    def count(self, line):  # Brackets
         count_line = list()
         ii = 0
         while ii <= len(line):

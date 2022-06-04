@@ -8,7 +8,7 @@ class Interpreter:
         self.variables_values = dict()
         self.linkedlist_values = dict()
 
-    def execute(self):
+    def execute(self):  # Begin
         for node in self.node_list:
             node_type = node.getTypeNode()
             # print("node_type:", node_type)

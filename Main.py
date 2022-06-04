@@ -3,6 +3,7 @@ from Lexer import *
 from Parser import *
 from Interpreter import *
 
+
 def work_lex_out(tokens):
     line = 1
     print('Tokens:\nLine = 1:')
@@ -16,8 +17,8 @@ def work_lex_out(tokens):
 
 if __name__ == '__main__':
     # print(eval("12 + (6+2*4 / 7 -2"))
-    # filename = (input("Filename: ")).strip()
-    filename = "code"  # DELETE !
+    filename = (input("Filename: ")).strip()
+    # filename = "code"
     filename = openfile(filename)
     file = open(filename)
     code = file.read()  # str
@@ -37,6 +38,6 @@ if __name__ == '__main__':
     inter = Interpreter(node_list)  # Object for execute
     inter.execute()  # Start execute
     # print(inter.linkedlist_values)  # Show all variables
-    # print(inter.variables_values)  # Show all LinkedList variables
+    # print(inter.variables_values)  # Show all LinkedList
 
     print('\nInterpreter Done!\n')

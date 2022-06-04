@@ -1,4 +1,5 @@
 # package DevProgLang/Lexer.py
+import Errors
 import sys
 import re
 import os
@@ -29,7 +30,8 @@ def lexer(characters):  # lexer
                 break
         if not match:
             sys.stderr.write('Illegal character: %s\n' % characters[pos])
-            sys.exit(1)
+            Errors.FalseSyntaxe(characters[pos], line, position)
+            # sys.exit(1)
         else:
             pos = match.end(0)  # new pos
     return tokens
@@ -48,5 +50,6 @@ def openfile(filename):
             print('\nEverything is OK! The file is open!\n')
             return filename
     except FileNotFoundError:  # Error
-        print("\nYou DON'T have a file with that name!\n")
+        message = "\n    You DON'T have a file with that name!"
+        print(f"\033[31m {message}")
         exit(1)

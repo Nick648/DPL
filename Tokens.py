@@ -95,7 +95,7 @@ class Token:
     def getPosition(self):
         return self.position
 
-    def toString(self):
+    def toString(self):  # Output
         if self.getTypeToken() != 'NEWLINE':
             text = f">>> [type: {self.type_token}; " \
                    f"value: '{self.value}'; " \
