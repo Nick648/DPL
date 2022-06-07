@@ -126,7 +126,17 @@ class Parser:
             else:
                 Errors.FalseKod(line[0].getNumberLine())
         else:
-            Errors.FalseKod(line[0].getNumberLine())
+            vars = list()
+            out = line[:len(line) - 1]
+            while len(out) > 1:
+                type_value = out[1].getTypeToken()
+                if type_value == "INT" or type_value == "FLOAT" or type_value == "VAR" \
+                        and out[0].getTypeToken() == "KW_PRINT":
+                    vars.append(out[1])
+                    out = out[2:len(line)]
+                else:
+                    Errors.FalseKod(line[0].getNumberLine())
+            return PrintNode(vars, "ListVars")
 
     def set_If_While(self, line, key_word):
         num_line = line[0].getNumberLine()

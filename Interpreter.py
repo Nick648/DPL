@@ -79,8 +79,28 @@ class Interpreter:
                 value.show()
             else:
                 Errors.error_message('Value of variable not found!')
+        elif type_value == "ListVars":
+            for item in node.getValue():
+                type_value = item.getTypeToken()
+                value = item.getValue()
+                if type_value == "INT":
+                    print(int(value), end=" ")
+                elif type_value == "FLOAT":
+                    print(float(value), end=" ")
+                elif type_value == "VAR":
+                    name_variable = value
+                    if name_variable in self.variables_values:
+                        value = self.variables_values[name_variable]
+                        print(f'{name_variable}: {value}', end=" ")
+                    elif name_variable in self.linkedlist_values:
+                        value = self.linkedlist_values[name_variable]
+                        print(f'{name_variable}:', end=' ')
+                        value.show()
+                    else:
+                        Errors.error_message('Value of variable not found!')
+            print()
         else:
-            Errors.error_message("Output only Vars and Integers!")
+            Errors.error_message("Output only Integers, Float and Vars!")
 
     def executeInput(self, node):
         comment = node.getComment()
