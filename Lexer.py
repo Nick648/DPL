@@ -41,7 +41,7 @@ def lexer(characters):  # lexer
 def openfile(filename):
     if ".txt" not in filename:
         filename += ".txt"
-    filename = os.path.abspath('venv/data') + '/' + filename
+    # filename = os.path.abspath('venv/data') + '/' + filename
     # filename = 'data/' + filename
     # print(f'Current Working Directory is: {os.getcwd()}')
     # print('filename:', filename)

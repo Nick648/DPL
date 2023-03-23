@@ -46,14 +46,17 @@ class Parser:
                 if self.tokens[pos:i]:
                     self.kod.append(self.tokens[pos:i])
                 pos = i + 1
+        if self.tokens[pos:]:
+            self.kod.append(self.tokens[pos:])
 
     def token_type(self, pos, typ):  # Token comparison
-        # print(self.tokens[pos].getTypeToken(), "?", typ)
+        # print(self.tokens[pos].getTypeToken(), "?", typ, "pos", pos)
         if self.tokens[pos].getTypeToken() == typ:
             return True
         return False
 
     def parse(self):  # Main parse
+        # print(self.kod, len(self.kod), len(self.kod[0]))
         for ii in range(len(self.kod)):  # Lines of code
             line = self.kod[ii]
             check_brackets(line)
@@ -114,7 +117,8 @@ class Parser:
             return InputNode(name_variable, comment)
 
     def setPrint(self, line):
-        value = line[1:len(line) - 1]
+        # value = line[1:len(line) - 1]
+        value = line[2:len(line) - 2]
         if len(value) == 1:
             type_value = value[0].getTypeToken()
             if type_value == "INT":
