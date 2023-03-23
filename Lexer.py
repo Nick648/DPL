@@ -6,7 +6,7 @@ import os
 from Tokens import *
 
 
-def lexer(characters):  # lexer
+def lexer(characters: str) -> list[Token]:  # lexer
     position, line = 0, 1
     pos = 0  # for re
     tokens = []
@@ -38,9 +38,10 @@ def lexer(characters):  # lexer
 
 
 # Is the file open?
-def openfile(filename):
+def openfile(filename: str) -> str:
     if ".txt" not in filename:
         filename += ".txt"
+    filename = os.path.join(os.getcwd(), filename)
     # filename = os.path.abspath('venv/data') + '/' + filename
     # filename = 'data/' + filename
     # print(f'Current Working Directory is: {os.getcwd()}')

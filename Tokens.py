@@ -83,20 +83,20 @@ class Token:
         self.number_line = number_line
         self.position = position
 
-    def getTypeToken(self):
+    def get_type_token(self):
         return self.type_token
 
-    def getValue(self):
+    def get_value_token(self):
         return self.value
 
-    def getNumberLine(self):
+    def get_number_line_token(self):
         return self.number_line
 
-    def getPosition(self):
+    def get_position_token(self):
         return self.position
 
-    def toString(self):  # Output
-        if self.getTypeToken() != 'NEWLINE':
+    def to_string_token(self):  # Output
+        if self.get_type_token() != 'NEWLINE':
             text = f">>> [type: {self.type_token}; " \
                    f"value: '{self.value}'; " \
                    f"number_line: {self.number_line}; " \
@@ -106,3 +106,15 @@ class Token:
                    f"number_line: {self.number_line}; " \
                    f"position: {self.position}]"
         print(text)
+
+    def __str__(self):  # Output
+        if self.get_type_token() != 'NEWLINE':
+            text = f">>> [type: {self.type_token}; " \
+                   f"value: '{self.value}'; " \
+                   f"number_line: {self.number_line}; " \
+                   f"position: {self.position}]"
+        else:
+            text = f">>> [type: {self.type_token}; " \
+                   f"number_line: {self.number_line}; " \
+                   f"position: {self.position}]"
+        return text

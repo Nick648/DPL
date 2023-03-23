@@ -89,9 +89,9 @@ class List:
             ob = self.first
             print('[', end='')
             while ob.next != None:
-                print(ob.get_value(), end=', ')
+                print(ob.get_value_node(), end=', ')
                 ob = ob.next
-            print(str(ob.get_value()) + ']')
+            print(str(ob.get_value_node()) + ']')
         else:
             print('[]')
 

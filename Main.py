@@ -4,18 +4,18 @@ from Parser import *
 from Interpreter import *
 
 
-def work_lex_out(tokens):
+def work_lex_out(tokens_list: list[Token]) -> None:
     line = 1
     print('Tokens:\nLine = 1:')
-    for token in tokens:
-        if token.getNumberLine() != line:
-            line = token.getNumberLine()
+    for token in tokens_list:
+        if token.get_number_line_token() != line:
+            line = token.get_number_line_token()
             print(f"Line = {line}:")
         # print(">>>", token)
-        token.toString()
+        token.to_string_token()
 
 
-if __name__ == '__main__':
+def main() -> None:
     # print(eval("12 + (6+2*4 / 7 -2"))
     filename = (input("Filename: ")).strip()
     # filename = "code"
@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     parser = Parser(tokens)  # Object for parsing
     parser.parse()  # Start parsing for search nodes
-    node_list = parser.getNodeList()  # List of nodes
+    node_list = parser.get_node_list()  # List of nodes
     # parser.show_nodes()  # Out parser
 
     print('Parser Done!\n')
@@ -41,3 +41,7 @@ if __name__ == '__main__':
     # print(inter.variables_values)  # Show all LinkedList
 
     print('\nInterpreter Done!\n')
+
+
+if __name__ == '__main__':
+    main()
